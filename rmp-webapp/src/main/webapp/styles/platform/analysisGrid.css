@@ -1,0 +1,158 @@
+.x-grid3 {
+    background: #4b4b4b;
+}
+
+.x-panel-body-noheader, .x-panel-mc .x-panel-body {
+    background: #4b4b4b;
+}
+
+.x-grid3-row-alt {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.x-plain-bwrap {
+    overflow:hidden;
+    zoom:1;
+    margin-right: 0px;
+}
+
+
+.x-panel-bwrap table td {
+    line-height: 30px;
+}
+
+.x-grid3-cell-inner, .x-grid3-hd-inner {/*grid文字颜色*/
+    color: #FFFFFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.x-grid3-cell-inner, .x-grid3-hd-inner {/*grid文字颜色*/
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+.x-small-editor .x-form-field {  /*bbar输入框，输入框内文字颜色*/
+    background: none repeat scroll 0 0 #4b4b4b;
+    font: 12px arial,tahoma,helvetica,sans-serif;
+    color: #FFFFFF;
+    border-color: #282828;
+}
+
+.x-form-label-left label.x-form-item-label {/*form的label颜色*/
+    color: #FFFFFF;
+    font-family: "微软雅黑";
+    margin-top: 5px;
+    text-align: right;
+}
+
+
+.x-btn-text-icon .x-btn-icon-small-left .x-btn-text {/*查询按钮颜色*/
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    height: 27px;
+    padding-left: 10px;
+    width: 56px;
+}
+
+.search_btn{/*查询按钮背景图片*/
+	background:url(../../scripts/ext-3.3.1/resources/images/default/form/search_btn.png);
+}
+
+
+.x-toolbar div.xtb-text {/*bbar文字颜色*/
+    color: #FFFFFF;
+    display: block;
+    line-height: 16px;
+    padding: 2px 2px 0;
+}
+
+.x-grid3-header{ /*去表头*/
+  display:none; 
+}
+
+.x-grid3-viewport{/*添加grid背景图片*/
+	border:1px solid #282828;
+	overflow:hidden;
+	background:url(../../scripts/ext-3.3.1/resources/images/default/grid/grid-background.png);
+}
+
+.x-grid-with-col-lines .x-grid3-row td.x-grid3-cell {/*删除border*/
+	border-right-color: #4B4B4B;
+}
+.x-grid3-hd-row td {
+    border-left-color: none;
+    border-right-color: none;
+    color: #333333;
+    line-height: 35px;
+    text-align: left;
+}
+
+.x-grid3-row {/*去掉grid top边框*/
+    border:none;
+}
+
+.x-grid3-row {
+	cursor: default;
+    border-bottom: 1px solid #282828;
+    width:100%;
+}
+
+.x-grid3-scroller {/*去掉grid top边框*/
+    border-top: none;
+    overflow: auto;
+    position: relative;
+}
+
+.background_color{/*整个panel背景颜色*/
+	 background: #4b4b4b;
+}
+
+.x-form-item {/*form 对齐*/
+    display:block;
+    margin-bottom:10px;
+    zoom:1;
+}
+
+.x-form-label-left label.x-form-item-label {/*form 对齐*/
+	/* 11/13 上午 10:44*/
+    font-family: "微软雅黑";
+    margin-top: 0px;
+    text-align: right;
+}
+
+.x-form-element  input{
+	border:none;
+}
+
+.x-panel-bbar, .x-window-bbar, .x-tab-panel-bbar, .x-plain-bbar {/*去掉bbar 边框*/
+    background: none repeat scroll 0 0 #2E2E2E;
+    border: 1px solid #282828;
+}
+
+.x-panel-noborder .x-panel-bbar-noborder .x-toolbar {/*去掉bbar 边框*/
+    border: 1px solid #282828;
+}
+
+.x-grid3-row-over {
+	border:1px solid;
+	border-color:none;
+    background: url(../../scripts/ext-3.3.1/resources/images/default/grid/select.png);
+}
+
+.x-grid3-row-selected {
+	background-image: none;
+	background-color: #181818 !important;/*grid添加选中颜色*/
+	border-color:#2e2e2e;
+}
+
+.x-grid-with-col-lines .x-grid3-row-selected {
+	border-top-color:#2e2e2e;
+}
+
+.x-grid-with-col-lines .x-grid3-row td.x-grid3-cell {
+    border-right: none;
+    padding-right: 0;
+}
+

@@ -1,0 +1,109 @@
+/* Icons CSS definiens for EXT component */
+
+/* */
+.dashboard-new-icon {
+	background-image:url(../../images/platform/icon/document.png) !important;
+}
+
+/* */
+.dashboard-open-icon {
+	background-image:url(../../images/platform/icon/folder_open_document.png) !important;
+}
+	
+/* */
+.dashboard-save-icon {
+	background-image:url(../../images/platform/icon/disk.png) !important;
+}
+
+/* */
+.dashboard-save-as-icon {
+	background-image:url(../../images/platform/icon/disks.png) !important;
+}
+
+/* */
+.dashboard-paste-icon {
+	background-image:url(../../images/platform/icon/clipboard-paste.png) !important;
+}
+
+/* */
+.dashboard-copy-icon {
+	background-image:url(../../images/platform/icon/document-copy.png) !important;
+}
+
+/* */
+.dashboard-delete-icon {
+	background-image:url(../../images/platform/icon/cross.png) !important;
+}
+
+/* */
+.dashboard-preview-icon {
+	/*说明中的图标*/
+	/*background-image:url(../../images/platform/icon/magnifier.png) !important*/;
+}
+
+/* */
+.dashboard-forward-icon {
+	background-image:url(../../images/platform/icon/arrow-curve.png) !important;
+}
+
+/* */
+.dashboard-back-icon {
+	background-image:url(../../images/platform/icon/arrow-curve-180-left.png) !important;
+}
+
+/* */
+.dashboard-run-icon {
+	background-image:url(../../images/platform/icon/control.png) !important;
+}
+
+/* */
+.dashboard-lock-icon {
+	background-image:url(../../images/platform/icon/lock.png) !important;
+}
+
+/* */
+.dashboard-unlock-icon {
+	background-image:url(../../images/platform/icon/lock-unlock.png) !important;
+}
+
+/* */
+.dashboard-filter-icon {
+	background-image:url(../../images/platform/icon/funnel.png) !important;
+}
+
+/* */
+.dashboard-sort-alphabet-icon {
+	background-image:url(../../images/platform/icon/sort-alphabet.png) !important;
+}
+
+/* */
+.dashboard-sort-number-icon {
+	background-image:url(../../images/platform/icon/sort-number.png) !important;
+}
+
+/* */
+.dashboard-calculate-icon {
+	background-image:url(../../images/platform/icon/calculator-scientific.png) !important;
+}
+
+/* */
+.dashboard-chart-icon {
+	background-image:url(../../images/platform/icon/chart.png) !important;
+}
+
+/* */
+.dashboard-question-icon {
+	background-image:url(../../images/platform/icon/question.png) !important;
+}
+
+/* */
+.charttype-chart-icon {
+	background-image:url(../../images/platform/icon/chart.png) !important;
+}
+
+/* */
+.charttype-gauge-icon {
+	background-image:url(../../images/platform/icon/dashboard.png) !important;
+}
+
+

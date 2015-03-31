@@ -1,0 +1,67 @@
+/*!
+ * Ext JS Library 3.3.1
+ * Copyright(c) 2006-2010 Sencha Inc.
+ * licensing@sencha.com
+ * http://www.sencha.com/license
+ */
+ /*覆盖网站分析报告页面样式*/
+.x-panel-tl .x-panel-header-text {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    float: left;
+    height: 21px;
+    line-height: 21px;
+    padding-left: 30px;
+    margin-left: -35px;
+}
+
+.x-grid-panel {
+    border: 1px solid #E1E1E1;
+    margin-left: -1px;
+    margin-right: 10px;
+    margin-top: -1px;
+}
+
+.x-border-layout-ct {
+    background-color: #FFFFFF;
+}
+
+.x-grid-panel .x-panel-mc .x-panel-body {
+    border-color: #E1E1E1;
+}
+
+  /*覆盖网站分析报告页面样式*/
+.x-portal .x-panel-dd-spacer {
+    margin-bottom:10px;
+}
+
+.x-portlet {
+    margin-bottom:10px;
+}
+
+/* Clean up the look of the portlets */
+.x-portlet .x-panel-ml {
+    padding-left:2px;
+}
+.x-portlet .x-panel-mr {
+    padding-right:2px;
+}
+.x-portlet .x-panel-bl {
+    padding-left:2px;
+}
+
+.x-portlet .x-panel-br {
+    padding-right:2px;
+}
+.x-portlet .x-panel-body {
+    background:white;
+}
+.x-portlet .x-panel-mc {
+    padding-top:2px;
+}
+.x-portlet .x-panel-bc .x-panel-footer {
+    padding-bottom:2px;
+}
+.x-portlet .x-panel-nofooter .x-panel-bc {
+    height:2px;
+}

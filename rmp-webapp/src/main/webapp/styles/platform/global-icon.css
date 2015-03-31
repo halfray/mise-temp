@@ -1,0 +1,238 @@
+/* Icons CSS definiens for EXT component */
+.welcome-tab-icon {
+	background-image:url(../../images/platform/icon/light_bulb.png) !important;
+}
+
+.taskstatus-tab-icon {
+	background-image:url(../../images/platform/icon/star.png) !important;
+}
+
+.normal-tab-icon {
+	background-image:url(../../images/platform/icon/blog_blue.png) !important;
+}
+
+.login-win {
+	background-image:url(../../images/platform/icon/safe_plus.png) !important;
+}
+
+.menu-settings {
+	background-image:url(../../images/platform/icon/hammer-screwdriver.png) !important;
+}
+
+.role-user-role-id-icon {
+	background-image:url(../../images/platform/icon/folder-open-document.png) !important;
+}
+
+.role-user-id-icon {
+	background-image:url(../../images/platform/icon/user.png) !important;
+}
+
+.role-user-save {
+	background-image:url(../../images/platform/icon/plus-circle.png) !important;
+}
+
+.role-user-reset {	
+	background-image: url("../../images/platform/icon/arrow-circle-225(2).png") !important;
+}
+
+.role-user-back {
+	background-image:url(../../images/platform/icon/arrow.png) !important;
+}
+
+.menu-nav {
+	background-image:url(../../images/platform/icon/folder-open-image.png) !important;
+}
+
+.menu-td-define-icon {
+	background-image:url(../../images/platform/icon/puzzle--pencil.png) !important;
+}
+
+.menu-td-io-icon {
+	background-image:url(../../images/platform/icon/puzzle--arrow.png) !important;
+}
+
+.menu-dt-define-icon {
+	background-image:url(../../images/platform/icon/table--pencil.png) !important;
+}
+
+.menu-oper-icon {
+	background-image:url(../../images/platform/icon/auction-hammer.png) !important;
+}
+
+.tree-node-moveup-icon {
+	background-image:url(../../images/platform/icon/arrow-curve-090.png) !important;
+}
+
+.tree-node-movedown-icon {
+	background-image:url(../../images/platform/icon/arrow-curve-270.png) !important;
+}
+
+.tree-node-refresh-icon {
+	background-image:url(../../images/platform/icon/arrow_circle_double.png) !important;
+}
+
+.dataTableList-return-icon {
+	background-image:url(../../images/platform/icon/arrow-curve-180-left.png) !important;
+}
+
+.dataTableList-join-icon {
+	background-image:url(../../images/platform/icon/arrow-join.png) !important;
+}
+
+.dataTableList-split-icon {
+	background-image:url(../../images/platform/icon/arrow-split.png) !important;
+}
+
+.dataTableList-add-icon {
+	/*background-image:url(../../images/platform/icon/table--plus.png) !important*/;	
+	background-image:url(../../images/platform/icon/table--plus_2.png) !important
+}
+
+.dataTableList-delete-icon {
+	/*ɾ��ͼ��  ���� 11/12 */
+	/*background-image:url(../../images/platform/icon/table--minus.png) !important*/;
+	background-image:url(../../images/platform/icon/table--minus_2.png) !important;
+}
+
+.dataTableList-modify-icon {
+	/*�޸�ͼ��  ���� 11/12 */
+	/*background-image:url(../../images/platform/icon/table--pencil.png) !important*/;
+	background-image:url(../../images/platform/icon/table--pencil_2.png) !important
+}
+
+.dataTable-save-icon {
+	background-image:url(../../images/platform/icon/notebook--pencil.png) !important;
+}
+
+.dataTable-preview-icon {	
+	background-image: url("../../images/platform/icon/magnifier (2).png") !important;
+}
+
+.dataTable-cancel-icon {
+	background-image:url(../../images/platform/icon/notebook--arrow.png) !important;
+}
+
+.dataTable-query-icon {
+	background-image:url(../../images/platform/icon/magnifier-left.png) !important;
+}
+
+.dataTable-addcol-icon {
+	background-image:url(../../images/platform/icon/card--plus.png) !important;
+}
+
+.dataTable-editor-icon {
+	background-image:url(../../images/platform/icon/funnel--plus.png) !important;
+}
+
+.authority-icon {
+	background-image:url(../../images/platform/icon/ticket.png) !important;
+}
+
+.system-prop-icon {
+	background-image:url(../../images/platform/icon/equalizer.png) !important;
+}
+
+.global-config-icon {
+	background-image:url(../../images/platform/icon/screwdriver.png) !important;
+}
+
+.task-manage-icon {
+	background-image:url(../../images/platform/icon/clipboard-text.png) !important;
+}
+
+.data-process-icon {
+	/*���� 11/12*/
+	/*background-image:url(../../images/platform/icon/table--pencil.png) !important*/;
+	background-image:url(../../images/platform/icon/table--pencil_2.png) !important;
+}
+
+.data-query-icon {
+	background-image:url(../../images/platform/icon/sticky-note-text.png) !important;
+}
+
+.task-template-icon {
+	background-image:url(../../images/platform/icon/layout-header-3-mix.png) !important;
+}
+
+.task-folder-icon {
+	background-image:url(../../images/platform/icon/folder_open_document.png) !important;
+}
+
+.data-collection-icon {
+	background-image:url(../../images/platform/icon/box.png) !important;
+}
+
+.dataTable-reset-icon {
+	background-image:url(../../images/platform/icon/arrow-circle.png) !important;
+}
+
+.toolbar-down-icon {
+	background-image:url(../../images/platform/icon/arrow-270.png) !important;
+}
+
+.toolbar-up-icon {
+	background-image:url(../../images/platform/icon/arrow-090.png) !important;
+}
+
+.homepage-sty-define-icon {
+	background-image:url(../../images/platform/icon/equalizer--pencil.png) !important;
+}
+
+.data-interface-icon {
+	background-image:url(../../images/platform/icon/plug.png) !important;
+}
+
+.media-resource-icon {
+	background-image:url(../../images/platform/icon/film.png) !important;
+}
+
+.media-statistics-icon {
+	background-image:url(../../images/platform/icon/film--pencil.png) !important;
+}
+
+.website-belongs-icon {
+	background-image:url(../../images/platform/icon/globe-network.png) !important;
+}
+
+.domain-belongs-icon {
+	background-image:url(../../images/platform/icon/address-book.png) !important;
+}
+
+.domain-list-icon {
+	background-image:url(../../images/platform/icon/address-book-open.png) !important;
+}
+
+.monitor-icon {
+	background-image:url(../../images/platform/icon/system-monitor.png) !important;
+}
+.control-icon {
+	background-image:url(../../images/platform/icon/control.png) !important;
+}
+
+.medal-icon {
+	background-image:url(../../images/platform/icon/medal.png) !important;
+}
+
+.save-icon {
+	background-image:url(../../images/platform/icon/disk.png) !important;
+}
+
+.pause-icon {
+	background-image:url(../../images/platform/icon/control-pause.png) !important;
+}
+
+.restart-icon {
+	background-image:url(../../images/platform/icon/control-stop.png) !important;
+}
+
+.default-icon {
+	/*11/13 ���� 15:59*/
+	/*background-image:url(../../scripts/ext-3.3.1/resources/images/default/tree/leaf.gif) !important*/;
+}
+
+.card-address-icon {
+	background-image:url(../../images/platform/icon/card_address.png) !important;
+}
+.document-excel-icon {
+	background-image:url(../../images/platform/icon/document-excel.png) !important;
+}

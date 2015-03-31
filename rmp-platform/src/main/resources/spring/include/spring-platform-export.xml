@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<context:annotation-config/> 
+	
+    <bean id="exportMethodConfigMap" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="export.exportHttpDomain44AllList" value="exportHttpDomain44ListProviderController.getExportFile(Map)"/>
+                <entry key="export.exportHttpDomain44AllListCount" value="exportHttpDomain44ListProviderController.getExportFileCount(Map)"/>
+				
+				<entry key="export.exportVideoBigFileDetailAllList" value="exportViewVideoResourceListProviderController.getExportFile(Map)"/>
+                <entry key="export.exportVideoBigFileDetailAllListCount" value="exportViewVideoResourceListProviderController.getExportFileCount(Map)"/>
+            </map>
+        </constructor-arg>
+    </bean>
+    
+    <bean id="exportDataExcelService" class="com.neteast.rmp.export.service.ExportDataExcelServiceImpl">
+        <property name="exportExcelConfigParser" ref="exportExcelConfigParser"/>
+    </bean>
+    
+    <bean id="exportExcelConfigParser" class="com.neteast.rmp.export.service.ExportExcelConfigParser" lazy-init="false">
+        <property name="exportMethodConfigMap" ref="exportMethodConfigMap"/>
+    </bean>
+	
+    <bean id="exportDataAction" class="com.neteast.rmp.export.web.ExportDataAction" scope="prototype">
+        <property name="exportDataExcelService" ref="exportDataExcelService"/>
+        <property name="exportPath" value="${export.filePath}"/>
+		<property name="maxResultsStr" value="${export.maxResultsStr}"/>
+    </bean>
+   <!--
+    <bean id="crawlerExportBaseDAOImpl"
+		class="com.neteast.rmp.export.dao.CrawlerExportBaseDAOImpl">
+		<property name="dataSource" ref="${crawler.dataSource}" />
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	-->
+</beans>

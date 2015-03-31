@@ -1,0 +1,25 @@
+
+body {
+	margin: 0px;
+	overflow: hidden;
+}
+
+.grid {
+	top: 0px;
+	left: 0px;
+}
+
+.div-link {
+	color: #0000FF;
+	cursor: pointer;
+}
+
+.div-link :hover {
+	text-decoration:underline;
+}
+
+#content {
+	width: 100%;
+	height: 100% !important; height: 100%;
+	background:none repeat scroll 0 0 #FFFFFF;/*x-tab-panel-bwrap与header之间的蓝色填充覆盖为白色(所有tabpanel的背景色改为白色)*/
+}

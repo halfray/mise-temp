@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+
+	<!--Definition of View Resolver -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+    <!-- maxUploadSize 100M = 1000000*100 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000"/>
+	</bean>	
+	
+	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" /> 
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver" />
+
+	<bean id="reportProxyKeyContainer" class="com.neteast.rmp.service.reportproxy.ReportProxyKeyContainer">
+		<property name="key" value="vans" />
+	</bean>
+	
+	<bean id="reportProxyController" class="com.neteast.rmp.web.reportproxy.ReportProxyController">
+		<property name="reportServerUrl" value="xma.yun-team.com/xma/bi/report.jsp" />
+	</bean>
+	
+	<bean id="beanNameUrlMapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="order" value="1" />
+	</bean>
+
+	<bean id="urlMappingForWebapp"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="interceptors" ref="localeChangeInterceptor" />
+		<property name="order" value="0" />
+		<property name="mappings">
+			<props>
+				<prop key="/reportProxy.do">reportProxyController</prop>
+			</props>
+		</property>
+	</bean>
+	
+</beans>

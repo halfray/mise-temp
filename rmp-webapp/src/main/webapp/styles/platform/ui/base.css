@@ -1,0 +1,73 @@
+*{margin:0px;padding:0px;font-size:14px;color:#565656;font-family:"微软雅黑";}
+li{list-style:none;}
+.gdBox{overflow:hidden;width:1050px; margin-top: 10px; margin-left: 10px;}/*弹出框  说明*/
+.aaa{
+	float: left;
+	padding-right:10px;
+	overflow:hidden;
+}
+/*.background{background:url(img/web.png) no-repeat;width:290px;height:200px;}*/
+.background1{
+	background: url(../../../images/platform/ui/img/m.png) repeat-x;
+	height:196px;
+	width:190px;
+	position:relative;
+	overflow:hidden;
+}
+.background2{
+	background: url(../../../images/platform/ui/img/m.png) repeat-x;
+	height:196px;
+	width:210px;
+	position:relative;
+		overflow:hidden;
+}
+.background3{
+	background: url(../../../images/platform/ui/img/m.png) repeat-x;
+	height:196px;
+	width:200px;
+	position:relative;
+}
+.background4{
+	background: url(../../../images/platform/ui/img/m.png) repeat-x;
+	height: 196px;
+	width: 180px;
+	position: relative;
+}
+.background5{
+	background: url(../../../images/platform/ui/img/m.png) repeat-x;
+	height: 196px;
+	width: 200px;
+	position: relative;
+}
+.bgLeft{float:left;background:url(../../../images/platform/ui/img/l.png) no-repeat top;width:10px;height:195px;}
+.bgRight{float:right;background:url(../../../images/platform/ui/img/r.png) no-repeat top;width:36px;height:195px;}
+.webBox{position:absolute;left:10px;top:20px;}
+.webG{font-size:16px;color:black;text-align:left;}
+.webNum{margin:10px 10px;width:150px;text-align:center;}
+.webNum .num1{color:#28b779;font-size:34px;font-weight:bold;}
+.webNum .num2{color:#dc539d;font-size:34px;font-weight:bold;}
+.webNum .num3{color:#28a9e3;font-size:34px;font-weight:bold;}
+.webNum .num4{color:#923ce3;font-size:34px;font-weight:bold;}
+.webNum .num5{color:#e37f3c;font-size:34px;font-weight:bold;}
+.webFooter span{color:black;font-size:16px;}
+.webNum span{margin-left:5px;}
+.webFooter{margin:0 auto;}
+.webFooter .webOut{display:block;float:left;text-align:right;margin-right:10px;width:70px;}
+.webFooter .webFootNum{display:inline;text-align:left;width:100px;font-weight:bold;}
+
+*{margin:0px;padding:0px;}
+li{ list-style:none;}
+.sumUp_box{font-family:"微软雅黑";
+	margin:20px 0 0 20px ;}
+.sumUp{overflow:hidden;
+	display:block;
+	margin-top:20px;}
+.sumUp li{float:left;
+	border-right:1px solid #d4d4d4;
+	font-size:14px;
+	margin-right:20px;
+	padding-right:20px;}
+.sumUp_box span{color:#ee006e;
+	font-size:12px;}
+.sumUp_title{font-size:16px;}
+.sumUp_title span{font-size:16px;}

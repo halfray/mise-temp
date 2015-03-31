@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="sc_taskmanager" >
+  <select id="getSystemTasks" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+		SELECT *
+		 FROM sc_taskmanager where 1=1 
+		<isNotEmpty prepend="and" property="taskmanager_id">
+			taskmanager_id = $taskmanager_id$
+		</isNotEmpty>
+		<isNotEmpty prepend="and" property="jobName">
+			jobName like '%$jobName$%'
+		</isNotEmpty>
+	</select>
+	<select id="getSystemTasksCount" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+		select count(*) from sc_taskmanager where 1=1 
+		<isNotEmpty prepend="and" property="id">
+			id = $id$
+		</isNotEmpty>
+		<isNotEmpty prepend="and" property="jobName">
+			jobName like '%$jobName$%'
+		</isNotEmpty>
+	</select>
+	<insert id="insertSystemTask" parameterClass="java.util.Map">
+	    insert into sc_taskmanager (jobName, className, cronExpression,cronTrigger,jobIsvalid,jobstate,startTime)
+	    values (#jobName#, #className#, #cronExpression#,#cronTrigger#,#jobIsvalid#,#jobstate#,#startTime#)
+	    <selectKey keyProperty="taskmanager_id" resultClass="java.lang.Integer">
+	      SELECT LAST_INSERT_ID()
+	    </selectKey>
+  </insert>
+  <update id="editSystemTask" parameterClass="java.util.Map">
+    update sc_taskmanager
+    set jobName = #jobName#,
+      cronExpression = #cronExpression#,
+      cronTrigger = #cronTrigger#,
+      className = #className#,
+      jobIsvalid = #jobIsvalid#,
+      jobstate = #jobstate#
+    where taskmanager_id = #taskmanager_id#
+  </update>
+  <select id="getSystemTasksById" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+		select * from sc_taskmanager where taskmanager_id = $taskmanager_id$
+  </select>
+   <delete id="delSystemTask" parameterClass="java.util.Map">
+	    delete from sc_taskmanager where taskmanager_id = #taskmanager_id#
+  </delete>
+  <update id="updateSystemTaskState" parameterClass="java.util.Map">
+    update sc_taskmanager set jobstate = #jobstate# where taskmanager_id = #taskmanager_id#
+  </update>
+  <select id="getSystemTasksByJobName" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+		select * from sc_taskmanager where jobName = #jobName#
+  </select>
+</sqlMap>

@@ -1,0 +1,38 @@
+*{margin:0px;padding:0px;font-size:14px;color:#565656;font-family:"微软雅黑";}
+li{list-style:none;}
+.gdBox{
+	overflow:hidden;
+	maigin-left: 5px;
+}
+.aaa{
+	float: left;
+	/*padding-right:10px;*/
+	overflow:hidden;
+	margin: 20px 10px;
+}
+/*.background{background:url(img/web.png) no-repeat;width:290px;height:200px;}*/
+.background{
+	background: url(../../../images/platform/ui/img/m.png) repeat-x;
+	height:196px;
+	width:360px;
+	position:relative;
+	overflow:hidden;
+}
+
+.bgLeft{float:left;background:url(../../../images/platform/ui/img/l.png) no-repeat top;width:10px;height:195px;}
+.bgRight{float:right;background:url(../../../images/platform/ui/img/r.png) no-repeat top;width:36px;height:195px;}
+.webBox{margin-left:5px;position:absolute;left:10px;top:20px;}
+.webNum{text-align:center;}
+.webNum .num1{color:#28b779;font-size:32.5px;font-weight:bold;}
+.webNum .num2{color:#dc539d;font-size:32.5px;font-weight:bold;}
+.webNum .num3{color:#28a9e3;font-size:32.5px;font-weight:bold;}
+.webG{font-size:16px;color:black;}
+.webNum{margin:10px 10px;}
+.webFooter{overflow:hidden;text-align:left;}
+.webFooter span{color:black;font-size:18px;font-weight:bold;}
+.webFooter div{float:left;font-size:14px; border-right:solid 1px #dadada;padding:0 10px;}
+.webFooter img{margin-top:8px;}
+.webFooter .webOut{border-right:none;}
+a{
+	text-decoration:none;
+}

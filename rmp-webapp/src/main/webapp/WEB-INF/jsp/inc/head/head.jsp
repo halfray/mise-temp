@@ -1,0 +1,19 @@
+<%-- config --%>
+<%@ include file="/WEB-INF/jsp/inc/config/config.jsp"%>
+<%-- inc --%>
+<%@ include file="/WEB-INF/jsp/inc/head/extjs.jsp"%>
+<%-- constant --%>
+<%@ include file="/WEB-INF/jsp/inc/head/constants.jsp"%>
+<%-- extends --%>
+<%@ include file="/WEB-INF/jsp/inc/head/extends.jsp"%>
+<%-- fun --%>
+<%@ include file="/WEB-INF/jsp/inc/head/funs.jsp"%>
+<%-- jsonrpc --%>
+<%@ include file="/WEB-INF/jsp/inc/head/jsonrpc.jsp"%>
+<%-- JsLoader --%>
+<%@ include file="/WEB-INF/jsp/inc/head/JsLoader.jsp"%>
+<%-- LinkLoader --%>
+<%@ include file="/WEB-INF/jsp/inc/head/LinkLoader.jsp"%>
+<%-- anyChart --%>
+<%@ include file="/WEB-INF/jsp/inc/head/anychart.jsp"%>
+

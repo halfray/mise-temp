@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- developers mode. -->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.parser" value="cos/pell"/>
+	<constant name="struts.multipart.maxSize" value="1024000000" />
+	<!-- Struts2缺省配置对应于： struts.action.extension = action,（注意后面有个逗号） -->
+	<constant name="struts.action.extension" value="action"/>
+	
+	
+	<!-- The prophet default package. -->
+	<package name="prophet-default" extends="struts-default">
+		<!-- extends results. -->
+        <result-types>
+            <result-type name="json" class="com.neteast.rmp.export.util.JSONResult" />
+        </result-types>
+	</package>
+
+	<include file="struts-export.xml" />
+	
+</struts>

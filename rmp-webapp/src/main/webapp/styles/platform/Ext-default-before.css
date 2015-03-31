@@ -1,0 +1,10 @@
+/**定义在本架构中对Ext css的要求,在ext自身的css设定前*/
+
+/**输入框长度统一*/
+.x-form-field {
+    width: 90;
+}
+/**下拉框长度统一*/
+.x-form-field-trigger-wrap{
+    width: 120;
+}

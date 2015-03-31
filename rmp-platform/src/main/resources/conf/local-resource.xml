@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+	<bean id="hostlist" name="HTTP列表信息">
+		<property name="tableName" value="hostlist" />
+		<property name="codeLabelName" value="hostname" />
+		<property name="codeValueName" value="id" />
+	</bean>
+
+	<bean id="sc_org" name="机构信息">
+		<property name="tableName" value="sc_org" />
+		<property name="codeLabelName" value="org_name" />
+		<property name="codeValueName" value="org_code" />
+	</bean>
+	
+    <bean id="sc_org_level" name="机构等级">
+		<property name="tableName" value="sc_parm_info" />
+		<property name="codeLabelName" value="parm_name" />
+		<property name="codeValueName" value="parm_code" />
+		<property name="condition" value="type_code = 'ORG_LEVEL' ORDER BY PARM_SORT" />
+	</bean>
+
+	<bean id="sc_parm_type" name="参数类型">
+		<property name="tableName" value="sc_parm_type" />
+		<property name="codeLabelName" value="type_name" />
+		<property name="codeValueName" value="type_code" />
+	</bean>
+	
+	<bean id="sc_parm_info" name="参数信息">
+		<property name="tableName" value="sc_parm_info" />
+		<property name="codeLabelName" value="parm_name" />
+		<property name="codeValueName" value="parm_code" />
+	</bean>
+
+	<bean id="sc_global_parm" name="全局参数信息">
+		<property name="tableName" value="sc_global_parm" />
+		<property name="codeLabelName" value="parm_value" />
+		<property name="codeValueName" value="parm_code" />
+	</bean>
+	
+	<bean id="sc_role" name="角色信息">
+		<property name="tableName" value="sc_role" />
+		<property name="codeLabelName" value="ROLE_ALIAS" />
+		<property name="codeValueName" value="ROLE_NAME" />
+	</bean>
+	
+	<bean id="sc_user" name="用户信息">
+		<property name="tableName" value="sc_user" />
+		<property name="codeLabelName" value="USER_ALIAS" />
+		<property name="codeValueName" value="USER_NAME" />
+	</bean>
+	
+	<bean id="boolean_value" name="布尔值">
+		<property name="tableName" value="sc_parm_info" />
+		<property name="codeLabelName" value="parm_name" />
+		<property name="codeValueName" value="parm_code" />
+		<property name="condition" value="type_code = 'BOOLEAN_VALUE'" />
+	</bean>
+
+	<bean id="sc_tree_menu_info" name="菜单信息">
+		<property name="tableName" value="sc_tree_menu" />
+		<property name="codeLabelName" value="text" />
+		<property name="codeValueName" value="menu_id" />
+	</bean>
+
+	<bean id="sc_tree_menu_link" name="菜单数据">
+		<property name="tableName" value="sc_tree_menu" />
+		<property name="codeLabelName" value="text" />
+		<property name="codeValueName" value="href_target" />
+	</bean>
+	
+	<bean id="TB_OP_W_0103" name="地域省份">
+		<property name="tableName" value="rmp_dm.tb_op_w_0103" />
+		<property name="codeLabelName" value="OP_020C" />
+		<property name="codeValueName" value="OP_0201" />
+		<!--<property name="condition" value="length(OP_0201) = 6" /> -->
+	</bean>
+	
+	<bean id="TB_OP_W_0001" name="运营商">
+		<property name="tableName" value="rmp_dm.tb_op_w_0001" />
+		<property name="codeLabelName" value="OP_0002" />
+		<property name="codeValueName" value="OP_0001" />
+	</bean>
+	
+	<bean id="TB_OP_W_0002" name="系统">
+		<property name="codeLabelName" value="OP_0105" />
+		<property name="codeValueName" value="OP_0104" />
+		<property name="querySql" value="select distinct OP_0104,OP_0105 from rmp_dm.tb_op_w_0002 where OP_0108 = 1" /><!--   只取系统大类   -->
+	</bean>
+	
+	<bean id="TB_OP_W_0003" name="内容资源归属">
+		<property name="tableName" value="rmp_dm.tb_op_w_0003" />
+		<property name="codeLabelName" value="OP_0302" />
+		<property name="codeValueName" value="OP_0301" />
+	</bean>
+	<bean id="TB_WS_W_0004" name="域名级别">
+		<property name="tableName" value="rmp_dm.tb_ws_w_0004" />
+		<property name="codeLabelName" value="WS_0005" />
+		<property name="codeValueName" value="WS_0004" />
+	</bean>
+	
+	<bean id="TB_WS_W_0003" name="网站类型">
+		<property name="tableName" value="rmp_dm.tb_ws_w_0003" />
+		<property name="codeLabelName" value="WS_0005" />
+		<property name="codeValueName" value="WS_0004" />
+	</bean>
+	<bean id="TB_WS_W_0003_BIG" name="网站大类型">
+		<property name="tableName" value="rmp_dm.tb_ws_w_0003" />
+		<property name="codeLabelName" value="WS_000F" />
+		<property name="codeValueName" value="WS_000E" />
+	</bean>
+	
+	<bean id="TB_IP_W_0003" name="重要资源类型">
+		<property name="tableName" value="rmp_dm.tb_ip_w_0003" />
+		<property name="codeLabelName" value="IP_0103" />
+		<property name="codeValueName" value="IP_0102" />
+	</bean>
+	
+	<bean id="sc_portal_sty" name="Portal代码">
+		<property name="tableName" value="rmp.sc_portal_sty" />
+		<property name="codeLabelName" value="PORTAL_TITLE" />
+		<property name="codeValueName" value="PORTAL_CODE" />
+	</bean>
+	
+	<bean id="tb_url_w_0001" name="协议类型">
+		<property name="tableName" value="rmp_dm.tb_url_w_0001" />
+		<property name="codeLabelName" value="URL_0005" />
+		<property name="codeValueName" value="URL_0004" />
+	</bean>
+	<bean id="tb_c_w_0101" name="资源类型">
+		<property name="tableName" value="rmp_dm.tb_c_w_0101" />
+		<property name="codeLabelName" value="CC_0004" />
+		<property name="codeValueName" value="CC_0003" />
+	</bean>
+	<bean id="code_url_size_para" name="大文件大小">
+		<property name="tableName" value="rmp_dm.code_url_size_para" />
+		<property name="codeLabelName" value="name" />
+		<property name="codeValueName" value="code" />
+	</bean>
+	<bean id="DM_SYSTEMMANAGER" name="系统参数管理">
+		<property name="tableName" value="dm_systemmanage_d" />
+		<property name="codeLabelName" value="paramcode" />
+		<property name="codeValueName" value="paramvalue" />
+	</bean>
+</beans>

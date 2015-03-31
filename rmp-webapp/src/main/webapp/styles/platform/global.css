@@ -1,0 +1,28 @@
+/* 
+   Description: This is the style of global scope. 
+   Author: Liuyansong 
+   Date: 2008-08-01
+*/
+
+body {
+	font-size: 12px !important; font-size: 14px;
+}
+
+a {
+	color: #0000FF;
+    text-decoration:none;
+}
+
+a div {
+	padding-top: 5px;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+/* 解决firefox下Tab页面的黑色边框的问题 */
+iframe {
+	border: 0px;
+}
+

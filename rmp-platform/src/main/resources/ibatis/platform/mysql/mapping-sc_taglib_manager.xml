@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="sc_taglib_manager">
+  	<select id="getTagLibTreeList" parameterClass="java.util.Map" resultClass="java.util.HashMap">
+		select scTagLibManagerId,parentId,tagName from sc_taglib_manager
+		where parentId = #id#
+	</select>
+	<insert id="onBoSave" parameterClass="java.util.Map">
+		insert into sc_taglib_manager (parentId,tagName) values 
+		(#parentId#,#tagName#)
+		<selectKey resultClass="java.lang.Long" keyProperty="scTagLibManagerId" >
+	      SELECT LAST_INSERT_ID()
+	    </selectKey>
+	</insert>
+	<update id="onBoUpdate" parameterClass="java.util.Map">
+		update sc_taglib_manager
+	    set parentId = #parentId#,
+	    tagName = #tagName#
+	    where scTagLibManagerId = #scTagLibManagerId#
+	</update>
+	<delete id="onBoDel" parameterClass="java.util.Map" >
+   	 	delete from sc_taglib_manager where scTagLibManagerId = #scTagLibManagerId#
+  	</delete>
+  	<select id="checkRepeatTagName" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+		select count(*) from sc_taglib_manager
+		where parentId = '0' and tagName = #value#
+	</select>
+</sqlMap>

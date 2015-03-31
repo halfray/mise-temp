@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE abatorConfiguration PUBLIC "-//Apache Software Foundation//DTD Abator for iBATIS Configuration 1.0//EN"
+  "http://ibatis.apache.org/dtd/abator-config_1_0.dtd">
+
+<abatorConfiguration>
+	<abatorContext generatorSet="Java5">
+
+		<!--   TODO: Add Database Connection Information   -->
+		<property name="useAnnotation" value="true" />
+		<property name="pageBoxClassName"
+			value="com.seraph.bi.suite.support.domain.pagination.PageBox" />
+		<property name="pageObjectClassName"
+			value="com.seraph.bi.suite.support.domain.pagination.PageObject" />
+		<property name="primaryKeyAnnotationClassName"
+			value="com.seraph.bi.suite.support.domain.annotations.PrimaryKey" />
+		<property name="springDaoAnnotationClassName" value="org.springframework.stereotype.Repository" />
+		<property name="baseDaoClassName" value="com.neteast.rmp.dao.ibatis.ext.BaseSqlMapClientDaoSupport" />
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.0.30.13:3306/rmp" userId="root"
+			password="qwertyu">
+			<classPathEntry
+				location="D:\maven\repository/mysql/mysql-connector-java/5.1.17/mysql-connector-java-5.1.17.jar" />
+		</jdbcConnection>
+
+		<!--  jdbcConnection driverClass="org.h2.Driver" connectionURL="jdbc:h2:file:/Users/seraph/Workshop/workspace-3.5.x_cgs/CGST/cgst-webapp/src/main/resources/h2/cgst" 
+			userId="sa" password="sa"> <classPathEntry location="/Users/seraph/Workshop/repository/com/h2database/h2/1.2.125/h2-1.2.125.jar" 
+			/> </jdbcConnection   -->
+
+		<!--  jdbcConnection driverClass="oracle.jdbc.OracleDriver" connectionURL="jdbc:oracle:thin:@10.1.67.1:1521:dcdb" 
+			userId="dts_user" password="dts_user"> <classPathEntry location="D:/repository/jdbc/oracle/oracle/10.2.0.4.0/oracle-10.2.0.4.0.jar" 
+			/> </jdbcConnection   -->
+
+		<javaModelGenerator targetProject="src/main/java"
+			type="org.apache.ibatis.abator.extending.SeraphJavaModelGeneratorLegacyImpl"
+			targetPackage="com.neteast.rmp.dao.domain">
+			<property name="prefix" value="" />
+			<property name="suffix" value="" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetProject="src/main/resources"
+			targetPackage="ibatis/platform/mysql"
+			type="org.apache.ibatis.abator.extending.SeraphSqlMapGeneratorLegacyImpl">
+			<property name="prefix" value="mapping-" />
+			<property name="suffix" value="" />
+		</sqlMapGenerator>
+
+		<daoGenerator targetProject="src/main/java"
+			targetPackage="com.neteast.rmp.dao"
+			type="org.apache.ibatis.abator.extending.SeraphSpringLegacyDAOGenerator">
+			<property name="enableSubPackages" value="true" />
+			<property name="subPackagesImpl" value="impl" />
+			<property name="prefix" value="" />
+			<property name="suffix" value="Impl" />
+		</daoGenerator>
+
+		<!--   Configuration Example   -->
+		<!--   <table tableName="SC_TREE_MENU"> <generatedKey column="ID" sqlStatement="select 
+			SC_TREE_MENU_SEQ.nextval from dual" identity="false" /> </table>   -->
+			
+		<!--   table tableName="view_video_resource"></table>
+		<table tableName="st_video"><generatedKey column="ID" sqlStatement="MYSQL" identity="true" /></table>
+		<table tableName="st_domain"><generatedKey column="ID" sqlStatement="MYSQL" identity="true" /></table  -->
+				
+		<table tableName="dm_net_resource_depth">
+			<generatedKey column="id" sqlStatement="MYSQL" identity="true" />
+		</table>
+	</abatorContext>
+</abatorConfiguration>
+

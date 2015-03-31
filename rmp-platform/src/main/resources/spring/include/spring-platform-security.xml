@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<!--  安全验证链,用于指定验证的方式及验证的过滤器及先后顺序  -->
+	<bean id="filterChainProxy" class="org.acegisecurity.util.FilterChainProxy">
+		<property name="filterInvocationDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/**=httpSessionContextIntegrationFilter,authenticationProcessingFilter,logoutFilter,rememberMeProcessingFilter,exceptionTranslationFilter,filterSecurityInterceptor
+			</value>
+		</property>
+	</bean>
+
+	<!--  用于帮助框架记住已验证用户身份   -->
+	<bean id="httpSessionContextIntegrationFilter"
+		class="org.acegisecurity.context.HttpSessionContextIntegrationFilter" />
+
+	<!--  身份来源   -->
+	<bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref bean="daoAuthenticationProvider" />
+				<ref bean="rememberMeAuthenticationProvider" />
+				<ref bean="anonymousAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+
+	<!--   验证国际化   -->
+	<bean id="messageSource" class="com.seraph.bi.suite.support.security.LocaleAwareAcegiMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:/i18n/security/messages</value>
+			</list>
+		</property>
+	</bean>
+   
+   <!--   数据库认证提供者，通过数据库获取身份信息   -->
+	<bean id="daoAuthenticationProvider"
+		class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="jdbcDaoImpl" />
+		<property name="userCache" ref="userCache" />
+		<property name="messageSource" ref="messageSource" />
+	</bean>
+	
+	<!--   EH缓存管理方式  -->
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>classpath:/conf/ehcache-failsafe.xml</value>
+		</property>
+	</bean>
+
+	<!--  创建EH缓存  -->
+	<bean id="userCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="cacheName" value="userCache" />
+	</bean>
+	
+	<!--   使用EH缓存方式来实现用户信息的缓存   -->
+	<bean id="userCache"
+		class="org.acegisecurity.providers.dao.cache.EhCacheBasedUserCache">
+		<property name="cache" ref="userCacheBackend" />
+	</bean>
+	
+	<!--   PlaintextPasswordEncoder, ShaPasswordEncoder, Md5PasswordEncoder   -->
+	<!--   对用户的命名使用何种密码编辑器 ，此处为明文，未使用   -->
+	<bean id="passwordEncoder" class="org.acegisecurity.providers.encoding.PlaintextPasswordEncoder" />
+
+	<!--   用户自定义通过数据库进行认证的方法   -->
+	<bean id="jdbcDaoImpl"
+		class="com.seraph.bi.suite.support.security.BaseJdbcDaoImpl">
+		<property name="dataSource" ref="${jdbc.dataSource}" />
+		<property name="usersByUsernameQuery"
+			value="SELECT * FROM sc_user WHERE user_name = ?" />
+		<property name="authoritiesByUsernameQuery"
+			value="select role_name from sc_user_role sur where user_name= ?" />
+	</bean>
+
+	<!--   表单认证处理器    -->
+	<bean id="authenticationProcessingFilter"
+		class="com.seraph.bi.suite.support.security.BaseAuthenticationProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="authenticationFailureUrl" value="/security/login.do?login_error=1" />
+		<property name="defaultTargetUrl" value="/main.do" />
+		<property name="filterProcessesUrl" value="/security/j_acegi_security_check" />
+		<property name="rememberMeServices" ref="rememberMeServices" />
+	</bean>
+
+	<!--  
+		Handle Project: bisp-report login event proxy. See also:
+		BaseAuthenticationProcessingFilter@autowire:authenticationEventProxy
+	  -->
+	<bean id="authenticationEventProxy"
+		class="com.seraph.bi.suite.support.security.SimpleAuthenticationEventProxyImpl" />
+
+	<!--   匿名认证处理器   -->
+	<bean id="anonymousProcessingFilter"
+		class="org.acegisecurity.providers.anonymous.AnonymousProcessingFilter">
+		<property name="key" value="anykey" />
+		<property name="userAttribute" value="anonymousUser,ROLE_ANONYMOUS" />
+	</bean>
+	
+	<!--  匿名认证提供者  -->
+	<bean id="anonymousAuthenticationProvider"
+		class="org.acegisecurity.providers.anonymous.AnonymousAuthenticationProvider">
+		<property name="key" value="anykey" />
+	</bean>
+
+	<!--   页面拦截处理器   -->
+	<bean id="filterSecurityInterceptor"
+		class="org.acegisecurity.intercept.web.FilterSecurityInterceptor">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="accessDecisionManager" ref="httpRequestAccessDecisionManager" />
+		<property name="objectDefinitionSource" ref="dynamicFilterInvocationDefinitionSource" /> 
+	</bean>
+
+	<!--   用户自定义资源访问信息提供者   -->
+	<bean id="dynamicFilterInvocationDefinitionSource"
+		class="com.seraph.bi.suite.support.security.DynamicFilterInvocationDefinitionSource">
+		<property name="resourceMappingProvider" ref="resourceMappingProvider" />
+		<property name="resourceExpression" value="PATTERN_TYPE_APACHE_ANT" />
+	</bean>
+	<!--   资源与访问映射提供者   -->
+	<bean id="resourceMappingProvider"
+		class="com.seraph.bi.suite.support.security.ResourceMappingProviderEhcacheImpl" />
+		
+	<!--   创建缓存  -->
+	<bean id="resourceMappingsCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager" ref="cacheManager" />
+		<property name="cacheName" value="resourceMappingsCache" />
+	</bean>
+	<!--   利用缓存存储资源信息   -->
+	<bean id="ehCacheBasedResourceMappingCache" class="com.seraph.bi.suite.support.security.EhCacheBasedResourceMappingCache" init-method="initializeCache">
+		<property name="dataSource" ref="${jdbc.dataSource}" />
+		<property name="cache" ref="resourceMappingsCacheBackend" />
+		<property name="cacheName" value="resourceMappingsCache" />
+		<property name="allResourcePathQuery"
+			value="select CONCAT('/', href_target) from sc_tree_menu where href_target is not null" />
+		<property name="permissionByResourcePathQuery"
+			value="select sr.role_name from sc_role_menu srm inner join sc_tree_menu stm on srm.menu_id = stm.menu_id inner join sc_role sr on srm.role_name = sr.role_name where stm.href_target = ?" />
+	</bean>
+
+	<!--   单用户投票赞成即通过机制  -->
+	<bean id="httpRequestAccessDecisionManager" class="org.acegisecurity.vote.AffirmativeBased">
+		<!--   所有都弃权时认证不通过   -->
+		<property name="allowIfAllAbstainDecisions">
+			<value>false</value>
+		</property>
+		<property name="decisionVoters">
+			<list>
+				<ref bean="roleVoter" />
+			</list>
+		</property>
+	</bean>
+
+	<!--   投票方式   -->
+	<bean id="roleVoter" class="org.acegisecurity.vote.RoleVoter">
+		<property name="rolePrefix" value="" />
+	</bean>
+
+ 	<!--   记忆认证处理器，用于保存登陆过的用户信息   -->
+	<bean id="rememberMeProcessingFilter"
+		class="org.acegisecurity.ui.rememberme.RememberMeProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager" />
+		<property name="rememberMeServices" ref="rememberMeServices" />
+	</bean>
+
+	<!--   记忆认证   -->
+	<bean id="rememberMeServices"
+		class="com.seraph.bi.suite.support.security.BaseTokenBasedRememberMeServices">
+		<property name="tokenValiditySeconds" value="432000"/><!--   Valid for 5 days   -->
+		<property name="userDetailsService" ref="jdbcDaoImpl" />
+		<property name="key" value="seraphRocks" />
+	</bean>
+	
+	<!--   记忆认证来源，记住一起登陆过的用户信息,用于再次登陆时无需验证即可通过   -->
+	<bean id="rememberMeAuthenticationProvider"
+		class="org.acegisecurity.providers.rememberme.RememberMeAuthenticationProvider">
+		<property name="key" value="seraphRocks" />
+	</bean>
+
+	<!--   用户退出机制   -->
+	<bean id="logoutFilter" class="org.acegisecurity.ui.logout.LogoutFilter">
+		<constructor-arg>
+			<list>
+				<bean class="org.acegisecurity.ui.logout.SecurityContextLogoutHandler" />
+			</list>
+		</constructor-arg>
+		<constructor-arg value="/security/login.do" />
+		<property name="filterProcessesUrl" value="/security/j_acegi_logout" />
+	</bean>
+
+	<!--  认证入口点   -->
+	<bean id="authenticationProcessingFilterEntryPoint"
+		class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl" value="/security/login.do" />
+		<property name="forceHttps" value="false" />
+	</bean>
+
+	<!--   认证失败处理   -->
+	<bean id="exceptionTranslationFilter" class="org.acegisecurity.ui.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint" ref="authenticationProcessingFilterEntryPoint" />
+		<property name="accessDeniedHandler">
+			<bean class="org.acegisecurity.ui.AccessDeniedHandlerImpl">
+				<property name="errorPage" value="/security/accessDeniedHandler.do" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="loggerListener" class="org.acegisecurity.event.authentication.LoggerListener" />
+
+	<bean id="rememberMeManager" class="com.seraph.bi.suite.support.security.RememberMeManager" />
+
+</beans>

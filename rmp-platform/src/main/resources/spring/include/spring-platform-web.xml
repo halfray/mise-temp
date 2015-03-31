@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-2.5.xsd" default-autowire="byName">
+
+	<context:component-scan base-package="com.neteast.rmp.web"
+		name-generator="com.seraph.bi.suite.support.core.generator.AbstractBeanNameGenerator" />
+	<context:component-scan base-package="com.neteast.rmp.action"
+		name-generator="com.seraph.bi.suite.support.core.generator.AbstractBeanNameGenerator" />
+	<context:component-scan base-package="com.neteast.rmp.export"
+		name-generator="com.seraph.bi.suite.support.core.generator.AbstractBeanNameGenerator" />
+	<context:annotation-config />
+
+	<bean id="annotationHandlerMapping"
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	
+	<bean id="domainPackageName" class="com.seraph.bi.suite.support.web.json.DomainPackageName">
+		<property name="packageName" value="com.neteast.rmp.dao.domain" />
+	</bean>
+
+	<bean id="urlMappingForPlatform"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order" value="0" />
+		<property name="mappings">
+			<props>
+				<prop key="/security/login.do">loginController</prop>
+				<prop key="/security/loginFailure.do">loginFailureController</prop>
+				<prop key="/security/logoutSuccess.do">logoutSuccessController</prop>
+				<prop key="/security/accessDeniedHandler.do">accessDeniedHandlerController</prop>
+				<prop key="/security/removeCookie.do">removeCookieController</prop>
+				<prop key="/main.do">mainController</prop>
+				<prop key="/helpContentProvider.do">helpContentProviderController</prop>
+				<prop key="/baseRecordList.do">baseRecordListController</prop>
+				<prop key="/baseRecordListProvider.do">baseRecordListProviderController</prop>
+				<prop key="/baseRecordAction.do">baseRecordActionController</prop>
+				<prop key="/treeMenuPersistence.do">treeMenuPersistenceController</prop>
+				<prop key="/security/captcha.do">captchaController</prop>
+				<prop key="/JSONRPC.do">baseActionController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="loginController"
+		class="com.neteast.rmp.web.security.LoginController">
+		<property name="viewName" value="/platform/security/login" />
+	</bean>
+
+	<bean id="loginFailureController"
+		class="com.neteast.rmp.web.security.loginFailureController" />
+
+	<bean id="logoutSuccessController"
+		class="com.neteast.rmp.web.security.LogoutSuccessController">
+		<property name="viewName" value="/platform/security/logoutSuccess" />
+	</bean>
+
+	<bean id="removeCookieController"
+		class="com.neteast.rmp.web.security.RemoveCookieController" />
+
+	<bean id="accessDeniedHandlerController"
+		class="com.neteast.rmp.web.security.AccessDeniedHandlerController">
+		<property name="viewName" value="/platform/login/accessDenied" />
+	</bean>
+	
+	<bean id="mainController" class="com.neteast.rmp.web.main.MainController">
+		<property name="viewName" value="/inc/frame/frame" />
+	</bean>
+
+	<bean id="helpContentProviderController"
+		class="com.neteast.rmp.web.system.HelpContentProviderController">
+		<property name="path" value="conf/read-me.txt" />
+	</bean>
+	
+	<bean id="baseRecordListController"
+		class="com.seraph.bi.suite.support.web.base.BaseRecordListController">
+		<property name="prefix" value="/platform" />
+		<property name="listPageSuffix" value="List" />
+	</bean>
+	
+	<bean id="baseRecordActionController"
+		class="com.seraph.bi.suite.support.web.base.BaseRecordActionController">
+		<property name="daoSuffix" value="DAO" />
+		<property name="domainPackageName" value="com.neteast.rmp.dao.domain" />
+	</bean>
+
+	<bean id="baseRecordListProviderController"
+		class="com.seraph.bi.suite.support.web.base.BaseRecordListProviderController">
+		<property name="daoSuffix" value="DAO" />	
+		<property name="domainPackageName" value="com.neteast.rmp.dao.domain" />
+	</bean>
+
+	<bean id="treeMenuPersistenceController"
+		class="com.neteast.rmp.web.systemconfig.TreeMenuPersistenceController">
+		<property name="commandClass" value="com.neteast.rmp.dao.domain.ScTreeMenu" />
+	</bean>
+	
+	<bean id="portalStyleModifyProviderController" class="com.neteast.rmp.web.portal.PortalStyleModifyProviderController">
+		<property name="commandClass" value="com.neteast.rmp.dao.domain.ScportalSty" />
+	</bean>
+
+</beans>

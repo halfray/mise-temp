@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<extspotConfiguration>
+	
+	<style>formEditor</style>
+
+	<encoding>UTF-8</encoding>
+	
+	<javaControllerGenerator enable="true"
+		targetProject="src/main/java" webPackage="com.neteast.rmp.web"
+		daoPackage="com.neteast.rmp.dao" />
+
+	<javaScriptGenerator enable="true" targetProject="src/main/webapp"
+		targetPackage="scripts/platform"/>
+
+	<jspPageGenerator enable="true" targetProject="src/main/webapp"
+		targetPackage="WEB-INF/jsp/platform"/>
+		
+<entity id="dmNetResourceDepth" name="dmNetResourceDepth" title="" module="resource_statistics">
+    <column id="id" name="" width="19" dataType="-5">
+      <isPK>true</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="website" name="" width="65535" dataType="-1">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="local" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="websiteType" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="domainCount" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="localDomainCount" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="localDomainRate" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="cmnetDomainCount" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="cmnetDomainRate" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="chinatelecomDomainCount" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="chinatelecomDomainRate" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="chinaunicomDomainCount" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="chinaunicomDomainRate" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="otherDomainCount" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+    <column id="otherDomainRate" name="" width="10" dataType="int">
+      <isPK>false</isPK>
+      <isHidden>false</isHidden>
+      <isQuery>false</isQuery>
+      <allowBlank>true</allowBlank>
+    </column>
+  </entity>
+</extspotConfiguration>

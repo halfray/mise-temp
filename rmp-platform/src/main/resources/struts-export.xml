@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="export" extends="prophet-default">
+    	<!-- 生成导出CSV文件 -->
+        <action name="createExportDataCSVAction" class="exportDataAction" method="createExportCSVData">
+        	<result type="json">
+				<param name="jsonObjectProperty">jsonObject</param>
+			</result>
+        </action>
+        <action name="doDownloadExportDataCSVAction" class="exportDataAction" method="doDownloadExportCSVData">
+        </action>
+		<!-- 生成导出XLS文件 -->
+		<action name="createExportDataXLSAction" class="exportDataAction" method="createExportXLSData">
+        	<result type="json">
+				<param name="jsonObjectProperty">jsonObject</param>
+			</result>
+        </action>
+        <action name="doDownloadExportDataXLSAction" class="exportDataAction" method="doDownloadExportXLSData">
+        </action>
+		<!-- 少量数据 通用导出XLS文件 -->
+		<action name="exportDataXLSAction" class="exportDataAction" method="exportExcel">
+        </action>
+    </package>
+</struts>

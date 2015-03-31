@@ -1,0 +1,37 @@
+*{margin:0px;padding:0px;font-size:14px;color:#565656;font-family:"微软雅黑";}
+li{list-style:none;}
+.gdBox{overflow:hidden;width:1038px;}
+.aaa{
+	float: left;
+	overflow:hidden;
+	margin: 6px 10px;
+}
+.background1{
+	background: url(../../../images/platform/ui/img/base_m.png) repeat-x;
+	height:288px;
+	width:319px;
+	position:relative;
+	overflow:hidden;
+}
+.background2{
+	background: url(../../../images/platform/ui/img/base_m.png) repeat-x;
+	height:264px;
+	width:326px;
+	position:relative;
+	overflow:hidden;
+}
+.bgLeft{float:left;background:url(../../../images/platform/ui/img/base_l.png) no-repeat top;width:10px;height:288px;}
+.bgRight{float:right;background:url(../../../images/platform/ui/img/base_r.png) no-repeat top;width:36px;height:288px;}
+.webBox{
+	margin-left:5px;
+	position:absolute;
+	left:20px;
+	top:20px;}
+.webName{
+	font-size:16px;
+	margin:10px 0px 20px 0px;}
+.webBox span{
+	color:#ee006e;
+	font-size:16px;}
+.webDetailList li{
+	margin:5px 0px;}

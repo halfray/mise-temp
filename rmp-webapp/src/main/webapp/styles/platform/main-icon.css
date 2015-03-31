@@ -1,0 +1,39 @@
+.login-successful {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/information.png) no-repeat 3px 3px;
+}
+
+.login-failed {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/minus_circle.png) no-repeat 3px 3px;
+}
+
+.personal-info {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/card_address.png) no-repeat 3px 3px;
+}
+
+.personal-authority {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/wand.png) no-repeat 3px 3px;
+}
+
+.personal-sms {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/mail.png) no-repeat 3px 3px;
+}
+
+.personal-pwd {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/fingerprint.png) no-repeat 3px 3px;
+}
+
+.personal-style {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/color-swatch.png) no-repeat 3px 3px;
+}
+
+.remove-cookie {
+	padding-left: 25px;
+    background: transparent url(../../images/platform/icon/cookie--minus.png) no-repeat 3px 3px;
+}

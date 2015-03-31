@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  
+<extspotConfiguration>
+	
+	<style>rowEditor</style>
+
+	<encoding>UTF-8</encoding>
+	
+	<javaControllerGenerator enable="true"
+		targetProject="src/main/java" webPackage="com.neteast.rmp.web"
+		daoPackage="com.neteast.rmp.dao" />
+
+	<javaScriptGenerator enable="true" targetProject="src/main/webapp"
+		targetPackage="scripts/platform"/>
+
+	<jspPageGenerator enable="true" targetProject="src/main/webapp"
+		targetPackage="WEB-INF/jsp/platform"/>
+
+
+</extspotConfiguration>

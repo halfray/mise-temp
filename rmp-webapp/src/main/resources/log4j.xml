@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- console output -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- roll file -->
+	<appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${user.home}/logs/rmp_webapps.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] %c - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- asyncappender-->
+	<appender name="ASYNC_FILE" class="org.apache.log4j.AsyncAppender">
+		<param name="BufferSize" value="512" />
+		<appender-ref ref="FILE" />
+	</appender>
+
+	<!-- debug jsonrpc -->
+	<logger name="com.neteast.rmp.rpc">
+		<level value="${log.level}" />
+	</logger>
+	
+	<!-- just for test -->
+	<logger name="com.neteast.rmp.web.test">
+		<level value="${log.level}" />
+	</logger>
+
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="ASYNC_FILE" />
+	</root>
+
+</log4j:configuration>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd 
+           http://www.springframework.org/schema/lang 
+           http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"
+	default-autowire="byName">
+
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<context:annotation-config />
+
+	<!--   将环境信息注入到SpringContext类的静态属性中  -->
+	<bean id="springContextBinder" class="com.seraph.bi.suite.support.core.SpringContextBinder" />
+	
+	<bean id="localResourcesManager"
+		class="com.seraph.bi.suite.support.core.resources.LocalResourcesManagerImpl" />
+
+	<bean id="xmlProxy"
+		class="com.seraph.bi.suite.support.core.resources.XmlLocalResourcesDeclareProxyImpl">
+		<property name="xmlPath" value="conf/local-resource.xml" />
+	</bean>
+
+	<bean id="localResourcesInitial" class="com.seraph.bi.suite.support.core.resources.LocalResourcesInitial"
+		init-method="initialize">
+		<property name="dataSource" ref="${jdbc.dataSource}" />
+		<property name="localResourcesDeclareProxy" ref="xmlProxy" />
+	</bean>
+		<!--   将字典表（local-resource）信息，生成字典js文件  -->
+	<bean id="localResourcesInit" class="com.neteast.rmp.bean.LocalResourcesInit"
+		init-method="initialize">
+		<property name="dataSource" ref="${jdbc.dataSource}" />
+		<property name="localResourcesDeclareProxy" ref="xmlProxy" />
+	</bean>
+	
+	<!--  lang:groovy id="localResourceIdConverter" script-source="classpath:/groovy/GroovyLocalResourceIdConverter.groovy" /  -->
+
+	<bean id="localResourceIdConverter" class="com.seraph.bi.suite.support.core.resources.LocalResourceIdConverterImpl" />
+
+	<bean id="localResourcesInterceptor" class="com.seraph.bi.suite.support.core.resources.LocalResourcesInterceptor" />
+
+	<aop:config>
+		<aop:aspect id="aspect" ref="localResourcesInterceptor">
+			<aop:pointcut id="daoPointcut" expression="execution(* com.neteast.rmp.dao..*(..))" />
+			<aop:after-returning pointcut-ref="daoPointcut" method="doAfterReturning" arg-names="rtv" returning="rtv" />
+		</aop:aspect>
+	</aop:config>
+	
+</beans>

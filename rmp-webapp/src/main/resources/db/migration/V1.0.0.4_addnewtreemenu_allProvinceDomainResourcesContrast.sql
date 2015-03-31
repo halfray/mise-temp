@@ -1,0 +1,2 @@
+INSERT INTO `sc_tree_menu` (`ID`, `MENU_ID`, `PARENT_ID`, `TEXT`, `LEAF`, `DISABLED`, `ICON_CLS`, `VISIBILITY`, `TYPE`, `HREF_TARGET`) VALUES ('125', '8007', '57', '各省域名资源对比', '1', '0', 'default-icon', '1', 'tree', 'allProvinceDomainResourcesContrast.do');
+INSERT INTO `sc_role_menu` (`ID`, `ROLE_NAME`, `MENU_ID`) VALUES ('278', 'ROLE_ADMIN', '8007');
